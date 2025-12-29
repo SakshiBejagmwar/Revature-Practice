@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Store 2026</title>
+    <style>
+        /* 1. RESET & BASE STYLES */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: grid;
+            grid-template-rows: auto 1fr; /* Grid layout for the whole page */
+        }
+
+        /* 2. STICKY NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* 3. PRODUCT GRID LAYOUT */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding: 40px 5%;
+        }
+
+        /* 4. FLEXBOX FOR PRODUCT CARDS */
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            
+            /* Flexbox to stack elements vertically */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd; /* Placeholder for image */
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .buy-btn:hover { background-color: #218838; }
+
+        /* 5. FIXED CART ICON */
+        .cart-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff9800;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar">
+        <div class="logo"><strong>Shop2026</strong></div>
+        <div class="nav-links">
+            <span>Home</span>
+            <span>Products</span>
+            <span>Contact</span>
+        </div>
+    </nav>
+
+    <!-- Product Grid -->
+    <main class="product-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="product-image" style="background: #ffcccc;">Image 1</div>
+            <h3>Smart Watch</h3>
+            <p>Track your health in style.</p>
+            <strong>₹4,999</strong>
+            <button class="buy-btn">Add to Cart</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="product-image" style="background: #ccffcc;">Image 2</div>
+            <h3>Wireless Earbuds</h3>
+            <p>Crystal clear sound quality.</p>
+            <strong>₹2,499</strong>
+            <button class="buy-btn">Add to Cart</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="product-image" style="background: #ccccff;">Image 3</div>
+            <h3>Laptop Stand</h3>
+            <p>Ergonomic design for work.</p>
+            <strong>₹1,299</strong>
+            <button class="buy-btn">Add to Cart</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="product-image" style="background: #ffffcc;">Image 4</div>
+            <h3>Power Bank</h3>
+            <p>Never run out of battery.</p>
+            <strong>₹1,999</strong>
+            <button class="buy-btn">Add to Cart</button>
+        </div>
+    </main>
+
+    <!-- Fixed Cart Icon -->
+    <div class="cart-fixed">
+        🛒
+    </div>
+
+</body>
+</html>

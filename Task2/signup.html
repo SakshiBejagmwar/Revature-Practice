@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f7efe5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background: #fffaf5;
+    padding: 30px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #6b4f4f;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #d8b4a0;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #d8b4a0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c19a85;
+}
+
+p {
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<form onsubmit="signup(event)">
+    <h2>Create Account</h2>
+
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Sign Up</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+</form>
+
+<script>
+function signup(e) {
+    e.preventDefault();
+
+    const user = {
+        name: name.value,
+        email: email.value,
+        password: password.value,
+    };
+
+    localStorage.setItem("userData", JSON.stringify(user));
+    alert("Signup Successful!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

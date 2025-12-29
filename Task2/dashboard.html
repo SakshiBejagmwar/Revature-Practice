@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sakshi's Dashboard</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background-color: #f7efe5;
+            padding: 20px;
+        }
+
+        /* Profile Header */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            color: #6b4f4f;
+            margin-bottom: 5px;
+        }
+
+        .profile-header p {
+            color: #8b6f63;
+            font-size: 16px;
+        }
+
+        table {
+            width: 85%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fffaf5;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            color: #5a3e36;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e6cfc1;
+            width: 30%;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f4e6da;
+        }
+
+        tr:hover td {
+            background-color: #efe0d4;
+            transition: 0.3s;
+        }
+
+        .section-title th {
+            background-color: #d8b4a0;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 4px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #7a5c52;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th {
+                width: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <h1>Sakshi Bejagmwar</h1>
+        <p>Computer Science Engineer | Full Stack Developer</p>
+    </div>
+
+    <table>
+
+        <!-- Personal Details -->
+        <tr class="section-title">
+            <th colspan="2">Personal Details</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>Sakshi Bejagmwar</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>sakshibejgamwar@gmail.com</td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td>+91 7666362266</td>
+        </tr>
+
+        <!-- Education -->
+        <tr class="section-title">
+            <th colspan="2">Education</th>
+        </tr>
+        <tr>
+            <th>Degree (UG)</th>
+            <td>B.Tech in Computer Science</td>
+        </tr>
+        <tr>
+            <th>University</th>
+            <td>DBATU University (2022 – 2025)</td>
+        </tr>
+        <tr>
+            <th>Diploma</th>
+            <td>Computer Science and Engineering</td>
+        </tr>
+        <tr>
+            <th>University</th>
+            <td>MSBTE University (2019 – 2022)</td>
+        </tr>
+
+        <!-- Skills -->
+        <tr class="section-title">
+            <th colspan="2">Skills</th>
+        </tr>
+        <tr>
+            <th>Technical Skills</th>
+            <td>
+                <ul>
+                    <li>HTML & CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>J2SE & J2EE</li>
+                    <li>Git & GitHub</li>
+                </ul>
+            </td>
+        </tr>
+
+        <!-- Frameworks -->
+        <tr class="section-title">
+            <th colspan="2">Frameworks & Tools</th>
+        </tr>
+        <tr>
+            <th>Frameworks</th>
+            <td>
+                <ul>
+                    <li>React</li>
+                    <li>Bootstrap</li>
+                    <li>Node.js</li>
+                </ul>
+            </td>
+        </tr>
+
+        <!-- Projects -->
+        <tr class="section-title">
+            <th colspan="2">Projects</th>
+        </tr>
+        <tr>
+            <th>Project 1</th>
+            <td>ETL Pipeline</td>
+        </tr>
+        <tr>
+            <th>Project 2</th>
+            <td>Structural Handler for Society</td>
+        </tr>
+        <tr>
+            <th>Project 3</th>
+            <td>Quiz Application</td>
+        </tr>
+
+    </table>
+
+    <footer>
+        <p>&copy; 2025 Sakshi Bejagmwar. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

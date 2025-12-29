@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Daily Hustle</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            background-color: #e9e9e9;
+        }
+
+        .newspaper {
+            width: 900px;
+            margin: 30px auto;
+            background: #fafafa;
+            padding: 30px;
+            border: 1px solid #222;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 52px;
+            margin: 0;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .header p {
+            margin: 5px 0 0;
+            font-size: 13px;
+            color: #444;
+        }
+
+        /* MAIN HEADLINE */
+        .main-headline {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #999;
+            padding-bottom: 20px;
+        }
+
+        .main-headline h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .main-headline img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+        }
+
+        .main-headline p {
+            font-size: 17px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #222;
+        }
+
+        /* COLUMNS */
+        .columns {
+            display: flex;
+            gap: 25px;
+        }
+
+        .column {
+            width: 33%;
+            text-align: justify;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .column h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .column img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .column p {
+            color: #333;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 950px) {
+            .newspaper {
+                width: 90%;
+            }
+
+            .columns {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="newspaper">
+
+    <div class="header">
+        <h1>THE DAILY HUSTLE</h1>
+        <p>New York Edition • Independent Journalism</p>
+    </div>
+
+    <div class="main-headline">
+        <h2>Green Horizon Urban Park Opens to the Public</h2>
+        <img src="img.jpg" alt="Urban Park">
+        <p>
+            The city officially opened the Green Horizon Urban Park on Thursday,
+            marking a major step toward environmental sustainability. Spanning
+            over 50 acres, the park features walking trails, curated gardens,
+            and renewable-energy-powered facilities designed to serve residents
+            across all neighborhoods.
+        </p>
+    </div>
+
+    <div class="columns">
+
+        <div class="column">
+            <h3>National</h3>
+            <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df">
+            <p>
+                Parliament passed a landmark education reform bill aimed at
+                strengthening digital learning systems and expanding funding
+                for public schools nationwide.
+            </p>
+        </div>
+
+        <div class="column">
+            <h3>World</h3>
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+            <p>
+                Global leaders convened at the Climate Summit to outline
+                aggressive emission targets and long-term adaptation strategies
+                to combat climate change.
+            </p>
+        </div>
+
+        <div class="column">
+            <h3>Sports</h3>
+            <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf">
+            <p>
+                City United clinched a dramatic 2–1 victory in stoppage time,
+                lifting them to the top of the league table in front of a
+                sold-out crowd.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

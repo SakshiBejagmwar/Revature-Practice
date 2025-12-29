@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f4e6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background: #fffaf5;
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #6b4f4f;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #d8b4a0;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #d8b4a0;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<form onsubmit="login(event)">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<script>
+function login(e) {
+    e.preventDefault();
+
+    const storedUser = JSON.parse(localStorage.getItem("userData"));
+
+    if (!storedUser) {
+        alert("No user found. Please sign up.");
+        return;
+    }
+
+    if (email.value === storedUser.email && password.value === storedUser.password) {
+        sessionStorage.setItem("loggedInUser", JSON.stringify(storedUser));
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid credentials!");
+    }
+}
+</script>
+
+</body>
+</html>
