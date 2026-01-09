@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON.parse Example</title>
+</head>
+<body>
+  <h2>JSON.parse() Example</h2>
+  <p id="output"></p>
+
+  <script>
+    // API response as a JSON string
+    const response = '{"id":101,"name":"Laptop","price":50000}';
+
+    // Convert JSON string to JavaScript object
+    const product = JSON.parse(response);
+
+    // Access the name and display it on the page
+    document.getElementById("output").textContent = product.name;
+  </script>
+</body>
+</html>
+
+
+
+<!-- 1.Why JSON.parse() is Needed
+
+API responses are often received as strings
+
+JavaScript cannot access properties on a string like an object
+
+JSON.parse() converts a JSON-formatted string into a JavaScript object -->

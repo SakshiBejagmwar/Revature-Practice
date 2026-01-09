@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback Queue Example</title>
+</head>
+<body>
+  <h1>Main Content</h1>
+  <p>This content loads first.</p>
+
+  <script>
+    console.log("Main content loaded");
+
+    // Simulate ad loading
+    setTimeout(() => {
+      console.log("Ads loaded");
+      document.body.insertAdjacentHTML(
+        "beforeend",
+        "<div style='margin-top:20px;color:red;'>Ad Content</div>"
+      );
+    }, 0);
+
+    console.log("Page interactive");
+  </script>
+</body>
+</html>
+
+
+
+<!-- 1.Page Load & Call Stack (Synchronous Code)
+
+When the page loads:
+
+JavaScript starts executing synchronous code
+
+"Main content loaded" is logged immediately
+
+setTimeout(..., 0) is encountered
+
+The callback is sent to Web APIs
+
+Timer starts (minimum delay, not immediate)
+
+"Page interactive" is logged
+
+Call Stack becomes empty
+
+✅ Main content and critical JS finish first
+
+2.Callback Queue
+
+After the timer completes:
+
+The ad-loading callback is pushed into the Callback Queue
+
+3.Event Loop
+
+The Event Loop checks:
+
+Is the Call Stack empty? ✔
+
+Is the Callback Queue non-empty? ✔
+
+➡ Now the ad-loading callback is executed -->

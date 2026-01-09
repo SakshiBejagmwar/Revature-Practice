@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array forEach Example</title>
+</head>
+<body>
+  <h2>Welcome Messages</h2>
+  <ul id="messages"></ul>
+
+  <script>
+    // List of users
+    const users = ["Alice", "Bob", "Charlie"];
+
+    // Get the HTML element
+    const messageList = document.getElementById("messages");
+
+    // Use forEach to display welcome messages
+    users.forEach(function(user) {
+      const listItem = document.createElement("li");
+      listItem.textContent = "Welcome, " + user + "!";
+      messageList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- users is an array of user names.
+
+forEach() runs once for each element in the array.
+
+The function inside forEach() receives the current user name.
+
+For every user, a welcome message is printed in the console, for example:
+Welcome, Alice! -->

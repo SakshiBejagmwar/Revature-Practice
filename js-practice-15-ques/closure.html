@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Counter</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { margin: 5px; padding: 10px 15px; }
+    p { font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Secure Counter</h1>
+
+  <button id="incrementBtn">Increment</button>
+  <button id="decrementBtn">Decrement</button>
+  <p>Counter Value: <span id="counterValue">0</span></p>
+
+  <script>
+    // Closure to create a secure counter
+    function createCounter() {
+      let count = 0; // Private variable, cannot be accessed directly
+
+      return {
+        increment: function() {
+          count++;
+          return count;
+        },
+        decrement: function() {
+          count--;
+          return count;
+        },
+        getValue: function() {
+          return count;
+        }
+      };
+    }
+
+    // Create a counter instance
+    const counter = createCounter();
+
+    const counterValueEl = document.getElementById('counterValue');
+    const incrementBtn = document.getElementById('incrementBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+
+    // Update counter display
+    function updateDisplay() {
+      counterValueEl.textContent = counter.getValue();
+    }
+
+    // Button event listeners
+    incrementBtn.addEventListener('click', () => {
+      counter.increment();
+      updateDisplay();
+    });
+
+    decrementBtn.addEventListener('click', () => {
+      counter.decrement();
+      updateDisplay();
+    });
+
+    // Initial display
+    updateDisplay();
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="runExample()">Click Me</button>
+
+  <script>
+    function runExample() {
+      console.log("Start");
+
+      setTimeout(() => {
+        console.log("Async Task");
+      }, 0);
+
+      console.log("End");
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- Step-by-Step Explanation
+1.Call Stack (Synchronous Code):
+
+When the button is clicked:
+
+runExample() is pushed onto the Call Stack
+
+console.log("Start") runs immediately
+✔ Output: Start
+
+setTimeout(...) is encountered
+
+The callback is sent to the Web APIs
+
+The timer starts (even with 0ms)
+
+console.log("End") runs immediately
+✔ Output: End
+
+runExample() finishes and is removed from the Call Stack
+At this point, the Call Stack is empty 
+
+
+2.Web APIs → Callback Queue:
+
+After the timer completes:
+
+The setTimeout callback (console.log("Async Task")) is placed into the Callback Queue
+
+3.Event Loop:
+
+The Event Loop constantly checks:
+
+❓ Is the Call Stack empty? → Yes
+
+❓ Is there something in the Callback Queue? → Yes
+
+➡ The Event Loop moves the callback from the Callback Queue to the Call Stack
+
+4.Callback Executes:
+
+console.log("Async Task") runs
+✔ Output: Async Task
+
+Callback is removed from the Call Stack-->

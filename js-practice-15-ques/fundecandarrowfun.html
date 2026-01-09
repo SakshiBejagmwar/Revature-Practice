@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { margin: 5px 0; padding: 5px; width: 100px; }
+    button { padding: 5px 10px; margin-top: 10px; }
+    p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>GST Calculator</h1>
+
+  <label>Amount: </label>
+  <input type="number" id="amount" placeholder="Enter amount"><br>
+
+  <label>GST Rate (%): </label>
+  <input type="number" id="gstRate" placeholder="Enter GST rate"><br>
+
+  <button id="calculateBtn">Calculate GST</button>
+
+  <h2>Results:</h2>
+  <p id="declarationResult"></p>
+  <p id="arrowResult"></p>
+
+  <script>
+    // 1️⃣ Function Declaration
+    function calculateGST(amount, gstRate) {
+      return amount * (gstRate / 100);
+    }
+
+    // 2️⃣ Arrow Function
+    const calculateGSTArrow = (amount, gstRate) => amount * (gstRate / 100);
+
+    // DOM elements
+    const amountInput = document.getElementById('amount');
+    const gstRateInput = document.getElementById('gstRate');
+    const declarationResult = document.getElementById('declarationResult');
+    const arrowResult = document.getElementById('arrowResult');
+    const calculateBtn = document.getElementById('calculateBtn');
+
+    // Event listener for button
+    calculateBtn.addEventListener('click', () => {
+      const amount = parseFloat(amountInput.value);
+      const gstRate = parseFloat(gstRateInput.value);
+
+      if (isNaN(amount) || isNaN(gstRate)) {
+        declarationResult.textContent = "Please enter valid numbers.";
+        arrowResult.textContent = "";
+        return;
+      }
+
+      // Calculate GST using both methods
+      const gstDeclaration = calculateGST(amount, gstRate).toFixed(2);
+      const gstArrow = calculateGSTArrow(amount, gstRate).toFixed(2);
+
+      // Display results
+      declarationResult.textContent = `Function Declaration GST: $${gstDeclaration}`;
+      arrowResult.textContent = `Arrow Function GST: $${gstArrow}`;
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- this context:
+Function Declaration: Has its own this binding, depends on how the function is called.
+Arrow Function: Does not have its own this; it inherits this from the surrounding context.
+Tip: Arrow functions are usually used for short functions or callbacks, 
+while function declarations are more versatile if you need this or hoisting. -->

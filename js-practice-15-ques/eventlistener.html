@@ -1,0 +1,83 @@
+<!-- Concepts
+
+1.Forms and submission:
+Forms are used to collect user input. When submitted, the browser usually reloads the page unless prevented.
+
+2.Event listeners:
+addEventListener() allows us to listen for events like clicks, typing, or form submission, and run custom logic when they happen.
+
+3.Form validation:
+Before sending form data, we can check if inputs are empty. If so, we can display an error message and stop the form from submitting.
+
+4.Preventing default behavior:
+event.preventDefault() stops the browser from refreshing the page when the form is submitted. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+    input {
+      margin-bottom: 10px;
+      display: block;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Subscribe Form</h2>
+
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <div id="error" class="error"></div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Step 1: Select the form and error div
+    const form = document.getElementById('myForm');
+    const nameInput = document.getElementById('name');
+    const errorDiv = document.getElementById('error');
+
+    // Step 2: Add a 'submit' event listener to the form
+    form.addEventListener('submit', function(event) {
+      // Step 3: Prevent form from submitting
+      event.preventDefault();
+
+      // Step 4: Validate the input
+      if (nameInput.value.trim() === '') {
+        errorDiv.textContent = 'Error: Name is required!';
+      } else {
+        errorDiv.textContent = '';
+        alert('Form submitted successfully!');
+        form.reset(); // Optional: clear the form
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- 
+| Concept/Method                         | Purpose                                                |
+| -------------------------------------- | ------------------------------------------------------ |
+| `document.getElementById('id')`        | Selects elements from the DOM.                         |
+| `addEventListener('submit', callback)` | Runs the callback function when the form is submitted. |
+| `event.preventDefault()`               | Stops the default form submission (page reload).       |
+| `input.value.trim()`                   | Gets the text the user typed, removing extra spaces.   |
+| `div.textContent`                      | Displays an error message dynamically in the page.     | -->

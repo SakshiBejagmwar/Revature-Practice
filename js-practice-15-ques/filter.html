@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Filter</title>
+</head>
+<body>
+  <h1>Available Products</h1>
+  
+  <!-- Search input -->
+  <input type="text" id="search" placeholder="Search products...">
+  
+  <!-- Product list -->
+  <ul id="productList"></ul>
+
+  <script>
+    // Sample product list
+    const products = [
+      { id: 1, name: "Laptop", inStock: true },
+      { id: 2, name: "Mouse", inStock: false },
+      { id: 3, name: "Keyboard", inStock: true },
+      { id: 4, name: "Monitor", inStock: false },
+      { id: 5, name: "Headphones", inStock: true }
+    ];
+
+    const productList = document.getElementById('productList');
+    const searchInput = document.getElementById('search');
+
+    // Function to display products
+    function displayProducts(items) {
+      productList.innerHTML = ''; // Clear current list
+      if (items.length === 0) {
+        productList.innerHTML = '<li>No products found</li>';
+        return;
+      }
+      items.forEach(product => {
+        const li = document.createElement('li');
+        li.textContent = product.name;
+        productList.appendChild(li);
+      });
+    }
+
+    // Function to filter products
+    function filterProducts() {
+      const query = searchInput.value.toLowerCase();
+      const filtered = products
+        .filter(product => product.inStock) // Only available products
+        .filter(product => product.name.toLowerCase().includes(query)); // Search by name
+      displayProducts(filtered);
+    }
+
+    // Event listener for search input
+    searchInput.addEventListener('input', filterProducts);
+
+    // Initial display of available products
+    filterProducts();
+  </script>
+</body>
+</html>
+
+
+<!-- 1.filter() Method:
+
+filter() is an array method that creates a new array with all elements that pass a test (the condition you provide in a callback function).
+
+The original array remains unchanged.
+
+2.Callback Function:
+
+product => product.inStock === true is a function that is called for each item in the products array.
+
+If the condition returns true, that item is included in the new array.
+
+3.Result:
+
+availableProducts contains only the products that are in stock. -->

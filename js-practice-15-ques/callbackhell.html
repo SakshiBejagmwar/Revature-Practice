@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Processing</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { padding: 10px 15px; margin-top: 10px; }
+    p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Payment Flow Simulation</h1>
+  <button id="startBtn">Start Payment Flow</button>
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById('output');
+
+    // Utility function to log messages
+    function log(message) {
+      console.log(message);
+      output.innerHTML += `<p>${message}</p>`;
+    }
+
+    // Simulate async functions returning Promises
+    function validateUser(userId) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          log("User validated");
+          resolve({ userId, name: "John Doe" });
+          // To simulate failure, use: reject("User validation failed");
+        }, 500);
+      });
+    }
+
+    function processPayment(user, amount) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          log(`Payment of $${amount} processed for ${user.name}`);
+          resolve({ paymentId: "PAY123", amount });
+          // To simulate failure, use: reject("Payment failed");
+        }, 500);
+      });
+    }
+
+    function generateInvoice(payment) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          log(`Invoice generated for payment ${payment.paymentId}`);
+          resolve({ invoiceId: "INV456", paymentId: payment.paymentId });
+          // To simulate failure, use: reject("Invoice generation failed");
+        }, 500);
+      });
+    }
+
+    // Main async function to run the payment flow
+    async function runPaymentFlow() {
+      try {
+        const user = await validateUser(1);
+        const payment = await processPayment(user, 100);
+        const invoice = await generateInvoice(payment);
+        log(`Payment flow completed: Invoice ID ${invoice.invoiceId}`);
+      } catch (error) {
+        log(`Error: ${error}`);
+      }
+    }
+
+    // Button click to start the flow
+    document.getElementById('startBtn').addEventListener('click', () => {
+      output.innerHTML = ""; // Clear previous logs
+      runPaymentFlow();
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- 
+1.Deeply Nested Structure:
+Each step depends on the previous one.
+Every callback is nested inside another callback, creating a pyramid-like structure (often called “Pyramid of Doom”).
+
+2.Problems caused by callback hell:
+Hard to read: It’s difficult to follow the flow of execution.
+Hard to maintain: Adding more steps makes it messier.
+Error handling is tricky: Each step needs separate error checks.
+Scalability issues: Adding logging, retries, or more async operations becomes painful.
+
+3.Definition of Callback Hell:
+Callback hell refers to the situation where you have many nested asynchronous callbacks in JavaScript.
+It makes code messy, error-prone, and almost unreadable. -->

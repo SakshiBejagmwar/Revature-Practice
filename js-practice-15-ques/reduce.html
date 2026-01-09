@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart Total</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+
+  <ul id="cartList"></ul>
+  <h2>Total: $<span id="totalPrice">0</span></h2>
+
+  <script>
+    // Sample shopping cart
+    const cart = [
+      { id: 1, name: "Laptop", price: 999.99, quantity: 1 },
+      { id: 2, name: "Mouse", price: 25.50, quantity: 2 },
+      { id: 3, name: "Keyboard", price: 45.00, quantity: 1 },
+      { id: 4, name: "Headphones", price: 75.25, quantity: 1 }
+    ];
+
+    const cartList = document.getElementById('cartList');
+    const totalPriceEl = document.getElementById('totalPrice');
+
+    // Display cart items
+    function displayCart() {
+      cartList.innerHTML = '';
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+        cartList.appendChild(li);
+      });
+    }
+
+    // Calculate total price using reduce()
+    function calculateTotal() {
+      const total = cart.reduce((accumulator, item) => {
+        return accumulator + item.price * item.quantity;
+      }, 0); // 0 is the initial value of accumulator
+      return total.toFixed(2); // format to 2 decimal places
+    }
+
+    // Display cart and total
+    displayCart();
+    totalPriceEl.textContent = calculateTotal();
+  </script>
+</body>
+</html>
+
+
+<!-- 1.reduce() method:
+
+const total = cart.reduce((accumulator, item) => {
+  return accumulator + item.price * item.quantity;
+}, 0);
+
+
+reduce() takes a callback function and an initial value (here 0).
+
+2.The callback receives:
+
+accumulator: the running total so far
+
+item: the current array element
+
+For each item in cart, we calculate item.price * item.quantity and add it to the accumulator.
+
+The final result is the sum of all items.
+
+toFixed(2):
+Formats the total price to 2 decimal places, so it looks like money (e.g., 1170.29 → 1170.29).
+
+3.Display:
+
+We loop through the cart to show all items in a list.
+
+The total price is displayed below the list. -->

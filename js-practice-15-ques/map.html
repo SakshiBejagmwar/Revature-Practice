@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array map() – Discount Example</title>
+</head>
+<body>
+  <h2>Price List with 10% Discount</h2>
+  <ul id="priceList"></ul>
+
+  <script>
+    // Original prices
+    const prices = [1000, 2500, 4000, 800];
+
+    // Apply 10% discount using map()
+    const discountedPrices = prices.map(function(price) {
+      return price - (price * 0.10);
+    });
+
+    // Display discounted prices
+    const list = document.getElementById("priceList");
+    discountedPrices.forEach(function(price) {
+      const item = document.createElement("li");
+      item.textContent = "Discounted Price: ₹" + price;
+      list.appendChild(item);
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- map() is an array method used when you want to transform each element of an array 
+and create a new array without changing the original one. -->

@@ -1,0 +1,69 @@
+<!-- DOM (Document Object Model):
+The DOM represents the HTML structure as a tree of objects, where every element is a node. You can manipulate these nodes with JavaScript.
+
+Creating elements dynamically:
+Use document.createElement() to make a new element in memory (it’s not yet on the page).
+
+Adding text/content:
+Use textContent or innerText to set the text of the element.
+
+Appending the element to the DOM:
+Use appendChild() or append() to add the new element to an existing parent in the DOM.
+
+Handling events:
+Use addEventListener() to run a function when a user clicks a button. -->/
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Item</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dynamic List Example</h2>
+  
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  
+  <button id="addButton">Add New Item</button>
+
+  <script>
+    // Step 1: Select the button and the list
+    const button = document.getElementById('addButton');
+    const list = document.getElementById('myList');
+
+    // Step 2: Add a click event listener to the button
+    button.addEventListener('click', function() {
+      // Step 3: Create a new <li> element
+      const newItem = document.createElement('li');
+      
+      // Step 4: Set the text content of the new <li>
+      newItem.textContent = 'New Item';
+      
+      // Step 5: Append the new <li> to the <ul>
+      list.appendChild(newItem);
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- document.getElementById('id')	= Selects an element by its id from the DOM.
+addEventListener('click', function) = Listens for a click event and runs a function when clicked.
+document.createElement('tagName') = Creates a new DOM element (not yet added to the page).
+element.textContent = Sets or gets the text inside an element.
+parent.appendChild(child) = Adds the child element as the last child of the parent element. -->

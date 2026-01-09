@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Validation</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { display: block; margin: 10px 0; padding: 5px; width: 200px; }
+    button { padding: 5px 10px; }
+    p { margin-top: 10px; color: red; }
+  </style>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button id="loginBtn">Login</button>
+
+  <p id="message"></p>
+
+  <script>
+    // Sample user data
+    const user = {
+      username: "admin",
+      password: "1234"
+    };
+
+    // Login validation function using callback
+    function validateLogin(inputUsername, inputPassword, callback) {
+      setTimeout(() => { // Simulate async validation
+        if (inputUsername === user.username && inputPassword === user.password) {
+          callback(null, "Login successful!");
+        } else {
+          callback("Invalid username or password", null);
+        }
+      }, 500); // 0.5 second delay
+    }
+
+    // DOM elements
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginBtn = document.getElementById('loginBtn');
+    const messageEl = document.getElementById('message');
+
+    // Handle login button click
+    loginBtn.addEventListener('click', () => {
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+
+      validateLogin(username, password, (error, successMessage) => {
+        if (error) {
+          messageEl.textContent = error;
+          messageEl.style.color = "red";
+        } else {
+          messageEl.textContent = successMessage;
+          messageEl.style.color = "green";
+
+          // Redirect after 1 second
+          setTimeout(() => {
+            window.location.href = "https://www.example.com/dashboard";
+          }, 1000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

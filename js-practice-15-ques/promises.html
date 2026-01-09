@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async/Await Fetch Example</title>
+</head>
+<body>
+  <h1>Fetch Data with Async/Await</h1>
+  <button id="fetchBtn">Fetch Data</button>
+  <pre id="output"></pre>
+
+  <script>
+    const output = document.getElementById('output');
+    const fetchBtn = document.getElementById('fetchBtn');
+
+    const url = "https://jsonplaceholder.typicode.com/posts/1"; // Example API
+
+    // Async function to fetch data
+    async function fetchData() {
+      try {
+        const response = await fetch(url);        // Wait for the fetch to complete
+        const data = await response.json();       // Wait for JSON parsing
+        console.log(data);                        // Log in console
+        output.textContent = JSON.stringify(data, null, 2); // Display on page
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        output.textContent = "Error fetching data";
+      }
+    }
+
+    fetchBtn.addEventListener('click', fetchData);
+  </script>
+</body>
+</html>
+
+
+1.async function
+Declares a function that can use await inside.
+Returns a Promise implicitly.
+
+2.await keyword
+Pauses execution until the Promise resolves.
+Makes asynchronous code look synchronous and readable.
+
+3.Error handling
+Use try/catch with async/await instead of .catch() in promises.
